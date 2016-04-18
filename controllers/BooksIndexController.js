@@ -10,13 +10,10 @@ function BooksIndexController($http){
 $http({
   method: 'GET',
   url: 'https://super-crud.herokuapp.com/books'
-}).then(onBooksIndexSuccess, onError);
-
-function onBooksIndexSuccess(response){
-  console.log('books data: ', response.data);
+}).then(function(response){
+  console.log(response.data);
   vm.books = response.data.books;
-}
-function onError(error){
-  console.error(error);
-}
+}).then(function(error){
+  console.log(error);
+});
 }
